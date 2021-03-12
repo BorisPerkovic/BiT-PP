@@ -6,22 +6,33 @@
 ======================================================================*/
 var dayNumber = 6;
 
-if (typeof dayNumber === "number") {
-  switch (dayNumber) {
-    case 1:
-    case 2:
-    case 3:
-    case 4:
-    case 5:
-      console.log("It’s weekday");
-      break;
-    case 6:
-    case 7:
-      console.log("It’s weekend");
-      break;
-    default:
-      console.log("It must be number between 1 to 7");
+
+//Checking if fields are empty
+if (dayNumber !== "") {
+
+  //checking type of incoming datas
+  if (typeof dayNumber === "number") {
+
+    switch (dayNumber) {
+      case 1:
+      case 2:
+      case 3:
+      case 4:
+      case 5:
+        console.log("It’s weekday");
+        break;
+      case 6:
+      case 7:
+        console.log("It’s weekend");
+        break;
+      default:
+        console.log("It must be number between 1 to 7");
+    }
+
+  } else {
+    console.log("Only number is allowed!!");
   }
+
 } else {
-  console.log("Only number is allowed!!");
+console.log("You have empty fields. All fields are required!!");
 }
