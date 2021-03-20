@@ -5,7 +5,7 @@ Output: 2
 ===================================================================*/
 var array = [4, 2, 2, -1, 6];
 var min = array[0];
-var largerNumber
+
 for (i = 0; i < array.length; i++) {
   if (array[i] < min) {
     
@@ -13,4 +13,4 @@ for (i = 0; i < array.length; i++) {
     b = index - 1;
   }
 }
-console.log("Minimun number is " + array[b]);
+console.log("Fist larger number than minimun is " + array[b]);

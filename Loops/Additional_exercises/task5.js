@@ -1,7 +1,7 @@
 /*==================================================================
-4.	Write a program that finds the first element larger than minimum and prints out its value. 
-Input array: [4, 2, 2, -1, 6]
-Output: 2
+5.	Write a program that calculates the sum of positive elements in the array.
+Input array: [3, 11, -5, -3, 2]
+Output: 16
 ===================================================================*/
 var array = [3, 11, -5, -3, 2];
 var sum = 0;
