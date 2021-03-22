@@ -5,16 +5,14 @@ Output array: [-3, 22, 10, 6.8, -8]
 ===================================================================*/
 var array = [-3, 11, 5, 3.4, -8];
 var sum = 0;
-var newArray = "[";
+var newArray = [];
 for (i = 0; i < array.length; i++) {
 
   if (array[i] > 0) {
     sum = array[i] * 2;
-    newArray += sum + ",";
+    newArray[i] = sum;
   } else {
-   newArray += array[i] + ",";
+    newArray[i] = array[i];
   }
-  
 }
-newArray +="]";
 console.log(newArray);

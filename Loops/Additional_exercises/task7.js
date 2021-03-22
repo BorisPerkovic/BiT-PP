@@ -5,16 +5,12 @@
 ==================================================================*/
 var array1 = [4, 5, 6, 2];
 var array2 = [3, 8, 11, 9];
-var string = "[";
+var newArray = [];
 
-for(var i = 0; i < array1.length; i++){
+for (i = 0; i < array1.length; i++) {
 
-    string +=array1[i] + "," + array2[i];
-
-    if ( i < array1.length -1) {
-        string+=",";
-    } else {
-        string+= "]";
-    }
-  }
-  console.log(string);
+  newArray[newArray.length] = array1[i];
+  newArray[newArray.length] = array2[i];
+  
+}
+console.log(newArray);

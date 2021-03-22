@@ -6,7 +6,7 @@ Output: [2, -2, 33, 78, 12, 5, 8]
 var e = 78;
 var p = 3;
 var a = [2, -2, 33, 12, 5, 8];
-var string = "[";
+var newArray = [];
 
 if (p > a.length) {
   console.log("Error message!!");
@@ -14,11 +14,11 @@ if (p > a.length) {
 
   for (i = 0; i < a.length; i++) {
     if (i === p) {
-      string += e + ",";
+      newArray[newArray.length] = e;
+      newArray[newArray.length] = a[i];
     } else {
-      string += a[i] + ",";
+      newArray[newArray.length] = a[i];
     }
   }
-  string += "]";
-  console.log(string);
+  console.log(newArray);
 }

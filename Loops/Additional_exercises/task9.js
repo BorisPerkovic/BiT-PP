@@ -4,12 +4,13 @@
 ==================================================================*/
 var a = [4, 6, 2, 8, 2, 2];
 var e = 2;
-var string ="[";
+var newArray = [];
 
 for ( i = 0; i < a.length; i++) {
+
   if (a[i] !== e) {
-    string +=a[i] + ",";
+    newArray[newArray.length] = a[i];
   }
+
 }
-string +="]";
-console.log(string);
+console.log(newArray);

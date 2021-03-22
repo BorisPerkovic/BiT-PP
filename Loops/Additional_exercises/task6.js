@@ -6,10 +6,12 @@ Output: The array is symmetric.
 Input array: [3, 4, 12, 8]
 	Output: The array isn’t symmetric.
 ================================================================== */
+
 var p = 0;
 var array = [2, 4, -2, 7, -2, 4, 2];
+
 for(i = 0; i < array.length/2; i++){
-    if(array[i] != array[array.length-1-i]){
+    if(array[i] !== array[array.length-1-i]){
         p = 1;
     }
 }
@@ -18,3 +20,4 @@ if(p === 0){
 } else{
     console.log("The array isn’t symmetric");
 }
+

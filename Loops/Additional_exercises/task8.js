@@ -5,15 +5,13 @@ Output array: [4, 5, 6, 2, 3, 8, 11, 9]
 ==================================================================*/
 var array1 = [4, 5, 6, 2];
 var array2 = [3, 8, 11, 9];
-var string = "[";
-var string1 = "";
-for( i = 0; i < array1.length; i++){
+var newArray = [];
 
-    string +=array1[i] + ",";     //4,5,6,2
-    string1 += array2[i] + ",";   //3,8,11,9
-  }
-  
-  string +=string1;   //4,5,6,2 + 3,8,11,9
-  string+= "]";
+for (i = 0; i < array1.length; i++) {
+  newArray[i] = array1[i];
+}
 
-  console.log(string);
+for (i = 0; i < array2.length; i++) {
+  newArray[newArray.length] = array2[i];
+}
+console.log(newArray);
