@@ -5,6 +5,7 @@ Output: -1, 3
 ===================================================================*/
 var array = [4, 2, 2, -1, 6];
 var min = array[0];
+var index = 0;
 
 for (i = 0; i < array.length; i++) {
   if (array[i] < min) {

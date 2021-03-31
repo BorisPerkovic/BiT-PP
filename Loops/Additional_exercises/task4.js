@@ -3,14 +3,16 @@
 Input array: [4, 2, 2, -1, 6]
 Output: 2
 ===================================================================*/
-var array = [4, 2, 2, -1, 6];
-var min = array[0];
+var arr = [4, 2, 2, -1, 6];
+var  min = Infinity;
+var nextMin = Infinity;
 
-for (i = 0; i < array.length; i++) {
-  if (array[i] < min) {
-    
-    index = i
-    b = index - 1;
-  }
+for (var i = 0; i < arr.length; i++) {
+	if (min > arr[i]) {
+		nextMin = min;
+		min = arr[i];
+	} else if (nextMin > arr[i]) {
+		nextMin  = arr[i];
+	}
 }
-console.log("Fist larger number than minimun is " + array[b]);
+console.log(min, nextMin);
