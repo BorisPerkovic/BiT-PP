@@ -10,7 +10,7 @@ function convertArray(array) {
   var result = "";
 
   for (i = 0; i < array.length; i++) {
-    if (isFinite(array[i]) === true && array[i] !== null) {
+    if (isFinite(array[i]) && array[i] !== null) {
       result += array[i];
     }
   }

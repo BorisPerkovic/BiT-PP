@@ -6,37 +6,17 @@
 ===================================================================*/
 
 var string = "My random string";
-var separator = "_";
+var separator = "";
 
 function replaceSpaces(string, separator) {
     var result = "";
-    switch (separator) {
-        case "+":
-            for (i = 0; i < string.length; i++) {
-                if (string[i] == " ") {
-                    result += separator;
-                } else {
-                    result += string[i];
-                }
-            }
-            break;
-        case "_":
-            for (i = 0; i < string.length; i++) {
-                if (string[i] == " ") {
-                    result += separator;
-                } else {
-                    result += string[i];
-                }
-            }
-            break;
-        default:
-            for (i = 0; i < string.length; i++) {
-                if (string[i] == " ") {
-                    result += "-";
-                } else {
-                    result += string[i];
-                }
-            }
+    separator = separator || "-"; 
+    for (i = 0; i < string.length; i++) {
+        if (string[i] == " ") {
+            result += separator;
+        } else {
+            result += string[i];
+        }
     }
 
     return result;

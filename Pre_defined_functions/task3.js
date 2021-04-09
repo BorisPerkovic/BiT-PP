@@ -9,12 +9,10 @@ function filter(array) {
   var newArray = [];
 
   for ( i = 0; i < array.length; i++) {
-    if (!!array[i] === false) {
-      continue;
-    } else {
+    if (array[i]) {
       newArray[newArray.length] = array[i];
     }
   }
   return newArray;
 }
-console.log(filter(array));
+console.log(filter(array)); 
