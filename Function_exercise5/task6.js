@@ -5,21 +5,19 @@ Output: 2350000
 var a = 1000;
 var b = 500;
 
-function evenOdd(a, b){
-  var sumEven = 0;
-  var sumOdd = 0;
-  for(even = 1, odd = 1; even <= a, odd <= b; even++, odd ++) {
-    if(even % 2 === 0){
-      sumEven += even;
-    }
-
-    if(odd % 2 !== 0) {
-      sumOdd += odd; 
+function oddEven(a, b) {
+  var sum = 0;
+  for (var i = 1; i <= a; i++) {
+    if (i % 2 === 0) {
+      sum += i;
+    } else if (i % 2 === 1 && i <= b) {
+      sum -= i;
     }
   }
 
-  return sumEven;
+  sum *= 12.5;
+  return sum;
 }
 
-var func = evenOdd(a, b);
+var func = oddEven(a, b);
 console.log(func);
