@@ -6,37 +6,37 @@
   ○	Add a method that delete a given ingredient from the list of ingredients.  
 ==================================================================*/
 
-function culinaryRecipe(name, cuis, complexity, ingr, time, instructions) {
-  var obj = {
-    name: name,
-    cuisine: cuis,
-    complexity: complexity,
-    ingredients: ingr,
-    time: time,
-    instructions: instructions,
-    ingred: function () {
+function Recipe(name, cuis, complexity, ingr, time, instructions) {
+
+    this.name = name;
+    this.cuisine = cuis;
+    this.complexity = complexity;
+    this.ingredients = ingr;
+    this.time = time;
+    this.instructions = instructions,
+    this.ingred = function () {
       return ingr.toString();
-    },
-    preparation: function () {
-      if (time < 15) {
+    };
+    this.preparation = function () {
+      if (this.time < 15) {
         return "Less than 15 minutes";
       }
       return "More than 15 minutes";
-    },
-    typeCuisine: function (cuis) {
-      obj.cuisine = cuis;
-      return obj.cuisine;
-    },
-    deleteIngredient: function (value) {
-      var value = value;
-      return obj.ingredients.filter(function (ingr) {
+    };
+    this.typeCuisine = function (cuis) {
+      this.cuisine = cuis;
+    };
+    this.deleteIngredient = function (value) {
+      this.ingredients = this.ingredients.filter(function (ingr) {
         return ingr !== value;
       });
     }
-
-
-  }
-  return obj;
 }
-var func = culinaryRecipe("Pizza", "Italy", 2, ["Olives", "Cheese", "Ham", "Mushrooms"], 10, "Create pastry for Pizza, put ingredienst on it, make 250 degrees and wait for 10 miuntes");
-console.log(func);
+
+var pizza = new Recipe("Pizza", "Italy", 2, ["Olives", "Cheese", "Ham", "Mushrooms"], 10, "Create pastry for Pizza, put ingredienst on it, make 250 degrees and wait for 10 miuntes");
+
+var spagheti = new Recipe("Spagheti", "France", 1, ["Beef", "Cheese", "Ham", "Pastry"], 25, "Create pastry for Pizza, put ingredienst on it, make 250 degrees and wait for 10 miuntes");
+
+console.log(pizza);
+pizza.deleteIngredient("Ham");
+console.log(pizza);
