@@ -43,11 +43,12 @@
       this.passengerList.push(passenger);
     };
     this.getData = function () {
-      this.string = this.flightDate + ", " + this.flightRelation + "\n";
-      this.passengerList.forEach((num, index) => {
-        this.string += "\t\t\t\t\t\t " + this.passengerList[index].passengerSeat + ", " + this.passengerList[index].passengerNameLastname + "\n";
+      var vocals = ["a", "e", "i", "o", "u"];
+      var string = this.flightDate + ", " + this.flightRelation + "\n";
+      this.passengerList.forEach( function (num)  {
+        string += "\t\t\t\t\t\t " + num.passengerSeat + ", " + num.passengerNameLastname + "\n";
       });
-      return this.string;
+      return string;
     };
   };
 
@@ -62,7 +63,10 @@
 
   /* function for creating flight Object */
   function createFlight(relation, date) {
-    var flight = new Flight(relation, date);
+    var flightDate = new Date(date).toLocaleDateString("en-GB");
+    var dateSplit = flightDate.split("/");
+    dateSplit = dateSplit[1] + "." + dateSplit[0] + "." + dateSplit[2];
+    var flight = new Flight(relation, dateSplit);
     return flight;
   };
 
@@ -102,12 +106,12 @@
   /* sum of all passengers at airport */
   var sumOFPassengers = 0;
   airport.airportListOfFlights.forEach(function (num, index) {
-    sumOFPassengers += airport.airportListOfFlights[index].passengerList.length;
+    sumOFPassengers += num.passengerList.length;
   });
 
   /* print datas on display */
   console.log("Airport: " + airport.airportName + ", total passengers: " + sumOFPassengers);
-  airport.airportListOfFlights.forEach(function (num, index) {
-    console.log("\t\t\t " + airport.airportListOfFlights[index].getData());
+  airport.airportListOfFlights.forEach(function (num) {
+    console.log("\t\t\t " + num.getData());
   });
 })();

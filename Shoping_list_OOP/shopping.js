@@ -29,30 +29,30 @@
       }
     };
     this.getTotalPrice = function () {
-      this.sum = 0;
-      this.productList.forEach((num, index) => {
-        this.sum += parseFloat(this.productList[index].productPrice);
+      var sum = 0;
+      this.productList.forEach(function (num) {
+        sum += parseFloat(num.productPrice);
       })
-      return this.sum.toFixed(2);
+      return sum.toFixed(2);
     };
     this.getAveragePrice = function () {
-      this.sum = 0;
-      this.productList.forEach((num, index) => {
-        this.sum += parseFloat(this.productList[index].productPrice);
+      var sum = 0;
+      this.productList.forEach(function (num) {
+        sum += parseFloat(num.productPrice);
       });
-      this.averagePrice = this.sum / this.productList.length;
+      this.averagePrice = sum / this.productList.length;
       return this.averagePrice.toFixed(3);
     };
     this.getMostExpensive = function () {
-      this.mostExpensivePrice = 0;
-      this.mostExpensiveProduct;
-      this.productList.forEach((num, index) => {
-        if (parseFloat(this.productList[index].productPrice) > this.mostExpensivePrice) {
-          this.mostExpensivePrice = parseFloat(this.productList[index].productPrice);
-          this.mostExpensiveProduct = this.productList[index].productName;
+      var mostExpensivePrice = 0;
+      var mostExpensiveProduct;
+      this.productList.forEach(function (num) {
+        if (parseFloat(num.productPrice) > mostExpensivePrice) {
+          mostExpensivePrice = parseFloat(num.productPrice);
+          mostExpensiveProduct = num.productName;
         }
       })
-      return this.mostExpensiveProduct + ", " + this.mostExpensivePrice;
+      return mostExpensiveProduct + ", " + mostExpensivePrice;
     };
   };
 
@@ -83,8 +83,8 @@
 
       console.log("Product list");
       console.log("------------------------");
-      shoppingBag.productList.forEach(function (num, index) {
-        console.log(shoppingBag.productList[index].getInfo());
+      shoppingBag.productList.forEach(function (num) {
+        console.log(num.getInfo());
       });
       console.log("------------------------");
       console.log("Total price of your product list is ", shoppingBag.getTotalPrice());
