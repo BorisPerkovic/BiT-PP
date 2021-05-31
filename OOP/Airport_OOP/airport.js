@@ -43,7 +43,6 @@
       this.passengerList.push(passenger);
     };
     this.getData = function () {
-      var vocals = ["a", "e", "i", "o", "u"];
       var string = this.flightDate + ", " + this.flightRelation + "\n";
       this.passengerList.forEach( function (num)  {
         string += "\t\t\t\t\t\t " + num.passengerSeat + ", " + num.passengerNameLastname + "\n";
@@ -63,17 +62,28 @@
 
   /* function for creating flight Object */
   function createFlight(relation, date) {
+
+    var vowels = ["a", "e", "i", "o", "u"];
+    var removeVowels = relation.split('').filter(element => !vowels.includes(element) && !" ".includes(element)).join('');
+    var getingWords = removeVowels.split("-");
+    var fromDestination = getingWords[0][0].toUpperCase() + getingWords[0][getingWords[0].length - 1].toUpperCase();
+    var arivalDestination = getingWords[1][0].toUpperCase() + getingWords[1][getingWords[1].length - 1].toUpperCase();
+    var fullDestination = fromDestination + " - " + arivalDestination;
+
     var flightDate = new Date(date).toLocaleDateString("en-GB");
     var dateSplit = flightDate.split("/");
     dateSplit = dateSplit[1] + "." + dateSplit[0] + "." + dateSplit[2];
-    var flight = new Flight(relation, dateSplit);
+
+    var flight = new Flight(fullDestination, dateSplit);
     return flight;
   };
 
   /* function for creating passenger Object */
   function createPassenger(firstName, lastName, seat, cat) {
+
     var seatNumber = seat == "" ? Math.floor(Math.random() * 100) + 1 : seat;
     var category = cat == "" ? "economy" : "business";
+
     var person = new Person(firstName, lastName);
     var seat = new Seat(seatNumber, category);
     var passenger = new Passenger(person, seat);
@@ -89,9 +99,9 @@
 
   /* creating passengers */
   var person1 = createPassenger("John", "Snow", 1, "b");
-  var person2 = createPassenger("Cersei", "Lannister", 2, "b");
+  var person2 = createPassenger("Cersei", "Lannister", 2, "");
   var person3 = createPassenger("Daenerys", "Targaryen", 14, "");
-  var person4 = createPassenger("Tyrion", "Lannister", "", "");
+  var person4 = createPassenger("Tyrion", "Lannister", "", "b");
 
   /* adding passengers to flights */
   flight1.addPassenger(person1);
@@ -101,11 +111,11 @@
 
   /* adding flights to airport */
   airport.addFlight(flight1);
-  airport.addFlight(flight2)
+  airport.addFlight(flight2);
 
   /* sum of all passengers at airport */
   var sumOFPassengers = 0;
-  airport.airportListOfFlights.forEach(function (num, index) {
+  airport.airportListOfFlights.forEach(function (num) {
     sumOFPassengers += num.passengerList.length;
   });
 
