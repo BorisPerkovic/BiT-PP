@@ -1,3 +1,4 @@
+/* creating class movie */
 class Movie {
   constructor(title, length, genre) {
     this.title = title;
@@ -13,6 +14,7 @@ class Movie {
 
 };
 
+/* creating class Program */
 class Program {
   constructor(date) {
     this.date = date;
@@ -32,6 +34,7 @@ class Program {
 
 };
 
+/* creating class festival */
 class Festival {
   constructor() {
     this.movieList = [];
